@@ -1,13 +1,30 @@
 #!/usr/bin/env bash
 
+CONFIG_FILE="config.sh"
+
+if [ ! -f $CONFIG_FILE ]; then
+	echo "WARNING: No file $CONFIG_FILE found. Please, create one according to the sample file."
+	echo "Just copy the sample file!"
+	echo "cp config.sample.sh config.sh"
+	exit 0
+fi
+
+# EXECUTE CONFIG SCRIPT
+source ./$CONFIG_FILE
+
+
+if [ -z $BASE_PATH ]; then
+	echo "Config variable BASE_PATH is missing. Please add it in your $CONFIG_FILE"
+	exit 0
+fi
+
+
 # READ AND CHECK PLUNKER_HASH
 PLUNKER_HASH=$1
 if [ -z $PLUNKER_HASH ]; then
 	echo "Please add the plunker hash from the url (http://embed.plnkr.co/<hash>/preview) as parameter"
+	exit 0
 fi
-
-# PATH FOR URL REPLACEMENTS
-BASE_PATH="plunker-preview-mirror/"
 
 # DOMAIN VARIABLES
 PLUNKER_EMBED_DOMAIN="embed.plnkr.co"
