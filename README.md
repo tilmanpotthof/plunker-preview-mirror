@@ -1,8 +1,10 @@
 # Plunker example mirror 
 
-As plnkr.co can not be accessed SSL-encryped, it is not possible to embed plunker examples on and SSL-excryped page.
-We solved this problem with a shell script that mirrors the whole example to a github page and replaces all the relevant urls.
+Plnkr.co can not be accessed SSL-encryped.
+Therefore it is not possible to embed plunker examples on and SSL-excryped page.
+As workaround I mirror the the whole examples to a github page and replaces all the relevant urls.
 
+This repository contains the shell script for mirroring the page and hopefully all relevant information to make this workaround useful to others.
 
 ## Configuration
 
